@@ -5,8 +5,8 @@
 package com.mycompany.rest.service.resources;
 
 import com.google.gson.Gson;
-import users.UtilsUser;
-import users.User;
+import CarCategories.CarCategoryUtils;
+import CarCategories.CarCategories;
 import java.sql.SQLException;
 import java.util.List;
 import javax.ws.rs.Consumes;
@@ -24,16 +24,17 @@ import javax.ws.rs.core.Response;
  *
  * @author User
  */
-@Path("users")
-public class UserService {
+
+@Path("carcategories")
+public class CarCategoryService {
     
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getUsers() {
-        UtilsUser utils = new UtilsUser();
-        List<User> users = utils.getUsers();
+    public Response getCarCategories() {
+        CarCategoryUtils utils = new CarCategoryUtils();
+        List<CarCategories> categories = utils.getCarCategories();
         Gson gson = new Gson();
-        String json = gson.toJson(users);
+        String json = gson.toJson(categories);
         System.out.println("Returning JSON: " + json); // Debug log
         return Response
                 .status(200)
@@ -45,12 +46,12 @@ public class UserService {
     @GET
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getUser(@PathParam("id") int id) {
-        UtilsUser utils = new UtilsUser();
+    public Response getCarCategory(@PathParam("id") int id) {
+        CarCategoryUtils utils = new CarCategoryUtils();
         
         try {
-            User user = utils.getUser(id);
-            if (user == null) {
+            CarCategories category = utils.getCarCategory(id);
+            if (category == null) {
                 return Response
                     .status(404)
                     .build();
@@ -58,7 +59,7 @@ public class UserService {
                 Gson gson = new Gson();
                 return Response
                     .status(200)
-                    .entity(gson.toJson(user))
+                    .entity(gson.toJson(category))
                     .build();
             }
         } catch(SQLException e) {
@@ -70,11 +71,11 @@ public class UserService {
     
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response addUser(String json) {
+    public Response addCarCategory(String json) {
         Gson gson = new Gson();
-        User user = gson.fromJson(json, User.class);
-        UtilsUser utils = new UtilsUser();
-        boolean res = utils.addUser(user);
+        CarCategories category = gson.fromJson(json, CarCategories.class);
+        CarCategoryUtils utils = new CarCategoryUtils();
+        boolean res = utils.addCarCategory(category);
         
         if (res) {
             return Response
@@ -89,11 +90,11 @@ public class UserService {
     
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response updateUser(String json) {
+    public Response updateCarCategory(String json) {
         Gson gson = new Gson();
-        User user = gson.fromJson(json, User.class);
-        UtilsUser utils = new UtilsUser();
-        boolean res = utils.updateUser(user);
+        CarCategories category = gson.fromJson(json, CarCategories.class);
+        CarCategoryUtils utils = new CarCategoryUtils();
+        boolean res = utils.updateCarCategory(category);
         
         if (res) {
             return Response
@@ -108,9 +109,9 @@ public class UserService {
     
     @DELETE
     @Path("{id}")
-    public Response deleteUser(@PathParam("id") int id) {
-        UtilsUser utils = new UtilsUser();
-        boolean res = utils.deleteUser(id);
+    public Response deleteCarCategory(@PathParam("id") int id) {
+        CarCategoryUtils utils = new CarCategoryUtils();
+        boolean res = utils.deleteCarCategory(id);
         
         if (res) {
             return Response
@@ -123,3 +124,4 @@ public class UserService {
         }
     }
 }
+

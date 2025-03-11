@@ -10,28 +10,28 @@ package users;
  */
 public class User {
     private int id;
-    private String name;
+    private String fullName;
     private String pass;
     private String email;
     private String tel;
-    private String nic;
+    private String identity;
     
     public User() {
         this.id = -1;
-        this.name = "";
+        this.fullName = "";
         this.pass = "";
         this.email = "";
         this.tel = "";
-        this.nic = "";
+        this.identity = "";
     }
 
-    public User(int id, String name, String pass, String email, String tel, String nic) {
+    public User(int id, String fullName, String pass, String email, String tel, String identity) {
         this.id = id;
-        this.name = name;
+        this.fullName = fullName;
         this.pass = pass;
         this.email = email;
         this.tel = tel;
-        this.nic = nic;
+        this.identity = identity;
     }
     
     public int getId() {
@@ -43,11 +43,11 @@ public class User {
     }
     
     public String getName() {
-        return name;
+        return fullName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String fullName) {
+        this.fullName = fullName;
     }
 
     public String getPass() {
@@ -74,11 +74,11 @@ public class User {
         this.tel = tel;
     }    
 
-    public String getNic() {
-        return nic;
+    public String getIdentity() {
+        return identity;
     }
 
-    public void setNic(String nic) {
-        this.nic = nic;
+    public void setIdentity(String identity) {
+        this.identity = identity;
     }
 }

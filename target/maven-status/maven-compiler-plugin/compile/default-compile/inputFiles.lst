@@ -1,12 +1,15 @@
 C:\Users\User\Documents\NetBeansProjects\rest-service\src\main\java\com\mycompany\rest\service\JakartaRestConfiguration.java
 C:\Users\User\Documents\NetBeansProjects\rest-service\src\main\java\admin\DBUtilsAdmin.java
 C:\Users\User\Documents\NetBeansProjects\rest-service\src\main\java\bookings\VehicleType.java
+C:\Users\User\Documents\NetBeansProjects\rest-service\src\main\java\cars\Car.java
 C:\Users\User\Documents\NetBeansProjects\rest-service\src\main\java\CarCategories\CarCategoryUtils.java
+C:\Users\User\Documents\NetBeansProjects\rest-service\src\main\java\cars\CarUtils.java
 C:\Users\User\Documents\NetBeansProjects\rest-service\src\main\java\com\mycompany\rest\service\resources\JakartaEE8Resource.java
 C:\Users\User\Documents\NetBeansProjects\rest-service\src\main\java\com\mycompany\rest\service\resources\AdminService.java
 C:\Users\User\Documents\NetBeansProjects\rest-service\src\main\java\com\mycompany\rest\service\resources\PopulatorService.java
 C:\Users\User\Documents\NetBeansProjects\rest-service\src\main\java\bookings\CarPopulatorUtils.java
 C:\Users\User\Documents\NetBeansProjects\rest-service\src\main\java\com\mycompany\rest\service\resources\CarPopulatorService.java
+C:\Users\User\Documents\NetBeansProjects\rest-service\src\main\java\com\mycompany\rest\service\resources\CarService.java
 C:\Users\User\Documents\NetBeansProjects\rest-service\src\main\java\CarCategories\CarCategories.java
 C:\Users\User\Documents\NetBeansProjects\rest-service\src\main\java\com\mycompany\rest\service\resources\CarCategoryService.java
 C:\Users\User\Documents\NetBeansProjects\rest-service\src\main\java\bookings\CarPopulator.java

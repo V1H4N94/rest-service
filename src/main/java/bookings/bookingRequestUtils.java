@@ -31,10 +31,12 @@ public class bookingRequestUtils {
                     request = new bookingRequest(
                         rs.getInt("id"),
                         rs.getString("email"),
-                        rs.getString("package"),
+                        rs.getString("packageType"),
                         rs.getString("date"),
                         rs.getString("location"),
-                        rs.getString("car_type")
+                        rs.getString("carType"),
+                        rs.getString("status"),
+                        rs.getDouble("payment")
                     );
                 }
             }
@@ -55,10 +57,12 @@ public class bookingRequestUtils {
                 requests.add(new bookingRequest(
                     rs.getInt("id"),
                     rs.getString("email"),
-                    rs.getString("package"),
+                    rs.getString("packageType"),
                     rs.getString("date"),
                     rs.getString("location"),
-                    rs.getString("car_type")
+                    rs.getString("carType"),
+                    rs.getString("status"),
+                    rs.getDouble("payment")
                 ));
             }
         } catch (SQLException e) {
@@ -70,13 +74,15 @@ public class bookingRequestUtils {
     public boolean addRequest(bookingRequest request) {
         try (Connection conn = db.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(
-                 "INSERT INTO requests (email, package, date, location, car_type) VALUES (?, ?, ?, ?, ?)")) {
+                 "INSERT INTO requests (email, packageType, date, location, carType, status, payment) VALUES (?, ?, ?, ?, ?, ?, ?)")) {
 
             pstmt.setString(1, request.getEmail());
             pstmt.setString(2, request.getPackageType());
             pstmt.setString(3, request.getDate());
             pstmt.setString(4, request.getLocation());
             pstmt.setString(5, request.getCarType());
+            pstmt.setString(6, request.getStatus());
+            pstmt.setDouble(7, request.getPayment());
 
             pstmt.executeUpdate();
             return true;
@@ -89,14 +95,16 @@ public class bookingRequestUtils {
     public boolean updateRequest(bookingRequest request) {
         try (Connection conn = db.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(
-                 "UPDATE requests SET email = ?, package = ?, date = ?, location = ?, car_type = ? WHERE id = ?")) {
+                 "UPDATE requests SET email = ?, packageType = ?, date = ?, location = ?, carType = ?, status = ?, payment = ? WHERE id = ?")) {
 
             pstmt.setString(1, request.getEmail());
             pstmt.setString(2, request.getPackageType());
             pstmt.setString(3, request.getDate());
             pstmt.setString(4, request.getLocation());
             pstmt.setString(5, request.getCarType());
-            pstmt.setInt(6, request.getId());
+            pstmt.setString(6, request.getStatus());
+            pstmt.setDouble(7, request.getPayment());
+            pstmt.setInt(8, request.getId());
 
             pstmt.executeUpdate();
             return true;

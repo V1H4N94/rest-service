@@ -98,18 +98,20 @@ public class DBUtilsAdmin {
     public boolean updateAdmin(Admin adm) {
         try {
             DriverManager.registerDriver(new com.mysql.jdbc.Driver());
-            String query = "UPDATE admins SET username = ?, password = ?, fName = ? WHERE id = ?";
 
-            try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
-                 PreparedStatement pstmt = conn.prepareStatement(query)) {
-
-                pstmt.setString(1, adm.getUser());
-                pstmt.setString(2, adm.getPass());
-                pstmt.setString(3, adm.getName());
-                pstmt.setInt(4, adm.getId());
-
-                pstmt.executeUpdate();
+            try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASS); 
+                 Statement stmt = conn.createStatement()) {
+                
+                String query = "UPDATE admins SET " +
+                             "username = '" + adm.getUser() + "', " +
+                             "password = '" + adm.getPass() + "', " +
+                             "fName = '" + adm.getName() + "' " +
+                             "WHERE id = " + adm.getId();
+                             
+                stmt.executeUpdate(query);
                 return true;
+            } catch (SQLException e) {
+                e.printStackTrace();
             }
         } catch (Exception e) {
             e.printStackTrace();

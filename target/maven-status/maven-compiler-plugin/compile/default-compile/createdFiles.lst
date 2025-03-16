@@ -4,7 +4,8 @@ cars\Car.class
 cars\CarUtils.class
 bookings\CarPopulator.class
 bookings\PopulatorUtils.class
-bookings\bookings.class
+com\mycompany\rest\service\resources\BookingRequestService.class
+confirmedBookings\ConfirmedBookingUtils.class
 com\mycompany\rest\service\resources\AdminService.class
 com\mycompany\rest\service\resources\CarService.class
 admin\Admin.class
@@ -15,7 +16,10 @@ com\mycompany\rest\service\resources\PopulatorService.class
 bookings\UtilsBooking.class
 com\mycompany\rest\service\resources\UserService.class
 com\mycompany\rest\service\resources\CarPopulatorService.class
+bookings\bookingRequest.class
+bookings\bookingRequestUtils.class
 CarCategories\CarCategoryUtils.class
+confirmedBookings\ConfirmedBooking.class
 com\mycompany\rest\service\JakartaRestConfiguration.class
 com\mycompany\rest\service\resources\CarCategoryService.class
 bookings\populator.class
